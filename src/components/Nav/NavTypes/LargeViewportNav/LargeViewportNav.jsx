@@ -2,9 +2,9 @@ import { NavWrapper } from "components/Nav/NavStyles";
 import {
   NavActionBar,
   NavActionBarLogo,
-  NavOptionsWrapper,
-  NavOptions,
-  NavOption,
+  NavCategoriesWrapper,
+  NavCategories,
+  NavCategory,
 } from "./LargeViewportNavStyles";
 
 import { FadeOnHover } from "../../../../lib/components/effects/FadeEffects";
@@ -15,7 +15,7 @@ const LargeViewportNav = ({ navCategories }) => {
       const { category_path } = navCategory;
       return (
         <FadeOnHover key={category_path}>
-          <NavOption>{category_path}</NavOption>
+          <NavCategory>{category_path}</NavCategory>
         </FadeOnHover>
       );
     });
@@ -26,9 +26,9 @@ const LargeViewportNav = ({ navCategories }) => {
       <NavActionBar>
         <NavActionBarLogo>END.</NavActionBarLogo>
       </NavActionBar>
-      <NavOptionsWrapper>
-        <NavOptions>{renderNavOptions(navCategories)}</NavOptions>
-      </NavOptionsWrapper>
+      <NavCategoriesWrapper>
+        <NavCategories>{renderNavOptions(navCategories)}</NavCategories>
+      </NavCategoriesWrapper>
     </NavWrapper>
   );
 };

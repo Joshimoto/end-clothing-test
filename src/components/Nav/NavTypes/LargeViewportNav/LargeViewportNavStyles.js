@@ -8,16 +8,16 @@ export const NavActionBar = styled.div`
 // Just made it h1 to make it quick
 export const NavActionBarLogo = styled.h1``;
 
-export const NavOptionsWrapper = styled.nav`
+export const NavCategoriesWrapper = styled.nav`
   padding-left: 2rem;
   padding-right: 2rem;
 `;
 
-export const NavOptions = styled.ul`
+export const NavCategories = styled.ul`
   list-style: none;
   display: flex;
 `;
 
-export const NavOption = styled.li`
+export const NavCategory = styled.li`
   margin-right: 2rem;
 `;
