@@ -4661,6 +4661,6 @@ const navData = {
             product_count: 0
         }
     ]
-}
+};
 
 export default navData;
