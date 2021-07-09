@@ -14,7 +14,7 @@ const LargeViewportNav = ({ navCategories }) => {
     return navCategories.map((navCategory) => {
       const { category_path } = navCategory;
       return (
-        <FadeOnHover>
+        <FadeOnHover key={category_path}>
           <NavOption>{category_path}</NavOption>
         </FadeOnHover>
       );
