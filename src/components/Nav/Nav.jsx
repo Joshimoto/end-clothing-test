@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { isMobile, isTablet } from "../../utils/viewport/viewport-utils";
 
-import LargeViewportNav from "components/Nav/NavTypes/LargeViewportNav";
-import SmallViewportNav from "components/Nav/NavTypes/SmallViewportNav";
+import LargeViewportNav from "components/Nav/NavTypes/LargeViewportNav/LargeViewportNav";
+import SmallViewportNav from "components/Nav/NavTypes/SmallViewportNav/SmallViewportNav";
+
+import navData from "data/nav/nav-data";
 
 /**
  * The purpose of this component is to render out the relevant nav
@@ -10,6 +12,7 @@ import SmallViewportNav from "components/Nav/NavTypes/SmallViewportNav";
  */
 const Nav = () => {
   const [navType, setNavType] = useState("");
+  const { navCategories } = navData;
 
   const handleNavType = () => {
     if (isMobile() || isTablet()) {
@@ -28,12 +31,12 @@ const Nav = () => {
     };
   }, []);
 
-  if (!navType) return <div>Hi</div>;
+  if (!navType) return null;
 
   return navType === "small-viewport" ? (
-    <SmallViewportNav />
+    <SmallViewportNav navCategories={navCategories} />
   ) : (
-    <LargeViewportNav />
+    <LargeViewportNav navCategories={navCategories} />
   );
 };
 

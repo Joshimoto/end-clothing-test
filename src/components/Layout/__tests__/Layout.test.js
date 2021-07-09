@@ -8,7 +8,7 @@ describe("<Layout />", () => {
   });
 
   test("shows <Nav />", async () => {
-    const nav = await screen.findByRole("navigation");
+    const nav = await screen.findByRole("banner");
     expect(nav).toBeInTheDocument();
   });
 });
