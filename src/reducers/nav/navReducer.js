@@ -2,7 +2,7 @@ import { FETCH_NAV, SET_NAV_ERROR } from "actions/nav/navTypes";
 import navData from "data/nav/nav-data";
 
 const initialState = {
-  navCategories: navData.categories,
+  navCategories: navData.navCategories,
   isLoaded: false,
   error: false,
 };

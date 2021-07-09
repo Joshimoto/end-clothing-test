@@ -1,70 +1,93 @@
-# Getting Started with Create React App
+## Table of contents
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- [Project Thoughts](#project-thoughts)
+- [Setup](#setup)
 
-## Available Scripts
+## Project Thoughts
 
-In the project directory, you can run:
+### MY SOLUTION PROCESS:
+When shown the requirement of rendering the component sever-side using express I was a unsure of how to do this.
 
-### `npm start`
+I haven't worked with express before and it was unfamiliar territory for me.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+When I usually encounter a problem that I am unsure of how to handle it and it is a core part to the app's functionality I try a Tracer Bullet development approach.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+A Tracer Bullet development approach is about creating one feature that uses all your app's core development tooling from end-to-end.
 
-### `npm test`
+By doing the tracer bullet development, I wanted to cover:
+- Setting up the initial create-react-app
+- Setting up the Redux store and allowing the initial state to be populated by server-side rendering
+- Creating tests to ensure the testing suite was setup correctly.
+- Finally can the app run client and server-side?
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### HOW DID IT GO?:
+Overall I was not able to accomplish what I wanted in the three hours. I had issues with the npm scripts for running the server causing issues with the create-react-scripts.
 
-### `npm run build`
+With a lot of time trying to fix this conflict, I decided to cut my losses and move on to just implementing the client-side rendered app.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Since I couldn't cover the entire process with the Tracer Bullet development, I wanted to still try and check the rest of the processes were working. e.g. Testing, running the app client-side, etc.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+I have given some more details to the section I covered below.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### State Management:
+I decided to go with Redux in this project instead of the ContextAPI. My reason for this is that I have more experience working with Redux than I have with the ContextAPI. Also, I am assuming since you are running a very large codebase you are probably using Redux too.
 
-### `npm run eject`
+#### The Nav Component:
+Since the END clothing website had a large viewport nav and a small viewport nav, I decided to go with the same approach.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Also, the components are quite different in functionality and presentation, where I feel a seperate nav component for each viewport would make the code cleaner and easier to maintain long-term.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+I included the logic for loading the relevant nav type based on the user's viewport width.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+I decided not to use the Redux data in the app in the end. I was running out of time and since testing is quicker without wrapping the component with the Provider I decided just to import the data and test it that way.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Testing:
+When it came to testing, I decided to stick to a few core tests that would show how I create tests for React apps.
 
-## Learn More
+I decided to cover whether or not the Nav was displaying and I also checked if the correct Nav was displayed based on the user's viewport.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Styling and UI Design:
+When running the app you will realise I haven't spent too much time replicating the exact styling for the Nav component.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+If I had more time to built a production ready app, I am confident I could style the Nav component to look the same as the Nav one the END clothing website.
 
-### Code Splitting
+In terms of how I did the styling I decided to use styled components. I really like styled components and find they help the readability of your app instead of having multiple div tags chucked full of class names.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### Conclusion:
+Overall, I was not able to complete what I wanted to do in the 3 hours due to some issues running the server correctly in my project.
 
-### Analyzing the Bundle Size
+I think the Tracer Bullet development did slow me down and reduced the amount of work I was able to output during the test. I do however, stick to my decision of choosing the Tracer Bullet development approach. I do agree that it might not be the best for completing a test within 3 hours.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+However, since this test was about covering my work process I had to include it.
 
-### Making a Progressive Web App
+If I had more time I would have gone through the whole Tracer Bullet development process and fixed that issue with the server.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Here are some other improvements I would have done if given enough time:
+- Create an api call to grab the nav data from the server if client-side rendered (I feel like the data should only come from one place - the server!)
+- Got the app working for client and server-side rendering.
+- Finished the implementation for the LargeViewportNav and the SmallViewportNav (Styled and fully functional)
+- Hooked up the Nav to Redux to utilise the store data and adjusted my tests to test the Nav component wrapped in a provider
+- Created more tests to cover my util functions and any new functionality added to the project.
 
-### Advanced Configuration
+## Setup
+Instructions for running the React app:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1 Open a terminal in the app root.
 
-### Deployment
+2 To install npm packages:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```
+npm i
+```
 
-### `npm run build` fails to minify
+3 To run jest unit-tests:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+npm test
+```
+
+4 To launch the app:
+
+```
+npm start
+```
